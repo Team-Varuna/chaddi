@@ -35,7 +35,7 @@ const ConfirmOrder = ({ history }) => {
     };
 
     console.log(data);
-    axios.post('/api/v1/create-checkout-session', { data })
+    axios.post('https://numunch1-2.onrender.com/api/v1/create-checkout-session', { data })
       .then((res) => {
         console.log(res);
         if (res.data.url) {
@@ -62,7 +62,7 @@ const ConfirmOrder = ({ history }) => {
 
     try {
       // Step 1: Create Order
-      const orderResponse = await fetch("/api/v1/process-payment-razorpay", {
+      const orderResponse = await fetch("https://numunch1-2.onrender.com/api/v1/process-payment-razorpay", {
         method: "POST",
         body: JSON.stringify({
           amount,
@@ -89,7 +89,7 @@ const ConfirmOrder = ({ history }) => {
         handler: async function (response) {
           try {
             const validateResponse = await fetch(
-              "/api/v1/validate-payment-razorpay",
+              "https://numunch1-2.onrender.com/api/v1/validate-payment-razorpay",
               {
                 method: "POST",
                 body: JSON.stringify(response), // Send the entire response object for validation
