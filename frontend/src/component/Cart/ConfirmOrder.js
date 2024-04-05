@@ -104,7 +104,7 @@ const ConfirmOrder = ({ history }) => {
             // Check if payment is successful
             if (jsonRes.success) {
               // Redirect to success page
-              window.location.href = "https://numunch1-2.onrender.com/success";
+              window.location.href = "http://localhost:3000/success";
             } else {
               // Handle unsuccessful payment (e.g., show error message to the user)
               console.log("Payment unsuccessful: ", jsonRes.message);
