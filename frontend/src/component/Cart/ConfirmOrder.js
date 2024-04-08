@@ -6,24 +6,17 @@ import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import axios from 'axios';
-
 const ConfirmOrder = ({ history }) => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.quantity * item.price,
     0
   );
-
   const shippingCharges = subtotal > 1000 ? 0 : 0;
-
   const tax = subtotal * 0;
-
   const totalPrice = subtotal + tax + shippingCharges;
-
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
-
   const proceedToPayment = () => {
     const data = {
       user: user,
@@ -33,7 +26,6 @@ const ConfirmOrder = ({ history }) => {
       shippingInfo: shippingInfo,
       tax: tax,
     };
-
     console.log(data);
     axios.post('/api/v1/create-checkout-session', { data })
       .then((res) => {
@@ -44,9 +36,6 @@ const ConfirmOrder = ({ history }) => {
       })
       .catch((error) => console.log(error));
   };
-
-
-
   const proceedToRazorpayPayment = async (e) => {
     const amount = subtotal * 100; // Correcting the amount calculation (remove the extra zero)
     const currency = "INR";
@@ -59,7 +48,6 @@ const ConfirmOrder = ({ history }) => {
       shippingInfo: shippingInfo,
       tax: tax,
     };
-
     try {
       // Step 1: Create Order
       const orderResponse = await fetch("/api/v1/process-payment-razorpay", {
@@ -79,7 +67,7 @@ const ConfirmOrder = ({ history }) => {
 
       // Step 2: Initialize Razorpay
       var options = {
-        key: "rzp_live_gyREnTwGyi6U9O",
+        key: "rzp_test_E6ALvvisDKdfNS",
         amount,
         currency,
         name: "Acme Corp",
@@ -100,7 +88,6 @@ const ConfirmOrder = ({ history }) => {
             );
             const jsonRes = await validateResponse.json();
             console.log(jsonRes); // this line shows the error message
-
             // Check if payment is successful
             if (jsonRes.success) {
               // Redirect to success page
@@ -109,7 +96,6 @@ const ConfirmOrder = ({ history }) => {
               // Handle unsuccessful payment (e.g., show error message to the user)
               console.log("Payment unsuccessful: ", jsonRes.message);
             }
-
           } catch (error) {
             console.error('Error:', error);
             // Handle error (e.g., show error message to the user)
@@ -144,8 +130,6 @@ const ConfirmOrder = ({ history }) => {
       // Handle error (e.g., show error message to the user)
     }
   };
-
-
   return (
     <Fragment>
       <MetaData title="Confirm Order" />
@@ -206,14 +190,12 @@ const ConfirmOrder = ({ history }) => {
                 <span>₹{tax}</span>
               </div>
             </div>
-
             <div className="orderSummaryTotal">
               <p>
                 <b>Total:</b>
               </p>
               <span>₹{subtotal}</span>
             </div>
-
             <button onClick={proceedToPayment}>Proceed To Pay with Stripe</button>
             <button onClick={proceedToRazorpayPayment}>Proceed to Pay with Razorpay</button>
           </div>
@@ -222,5 +204,4 @@ const ConfirmOrder = ({ history }) => {
     </Fragment>
   );
 };
-
 export default ConfirmOrder;
