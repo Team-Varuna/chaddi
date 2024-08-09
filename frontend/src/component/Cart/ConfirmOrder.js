@@ -10,7 +10,7 @@ const ConfirmOrder = ({ history }) => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price*100,
+    (acc, item) => acc + item.price * 100,
     0
   );
   const shippingCharges = subtotal > 1000 ? 0 : 0;
