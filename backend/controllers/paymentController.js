@@ -105,8 +105,8 @@ exports.processPayment = catchAsyncErrors(async (req, res) => {
       const session = await stripe.checkout.sessions.create({
         line_items,
         mode: 'payment',
-        success_url: 'http://localhost:3000/success',
-        cancel_url: 'http://localhost:3000/cancel',
+        success_url: 'https://numunch1-2.onrender.com/success',
+        cancel_url: 'https://numunch1-2.onrender.com/cancel',
       });
 
       const order = new Order({
