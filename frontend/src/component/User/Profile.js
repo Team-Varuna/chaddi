@@ -16,7 +16,7 @@ const Profile = ({ history }) => {
   }, [history, isAuthenticated]);
 
   const handleBackToProducts = () => {
-    history.push("/products");
+    history.push("/");
   };
   
   return (
