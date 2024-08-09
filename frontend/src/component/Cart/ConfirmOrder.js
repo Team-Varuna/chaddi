@@ -67,7 +67,7 @@ const ConfirmOrder = ({ history }) => {
 
       // Step 2: Initialize Razorpay
       var options = {
-        key: "rzp_test_E6ALvvisDKdfNS",
+        key: "rzp_test_QR9infxGzudj4f",
         amount,
         currency,
         name: "Acme Corp",
