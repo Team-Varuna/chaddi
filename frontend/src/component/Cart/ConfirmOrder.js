@@ -196,7 +196,7 @@ const ConfirmOrder = ({ history }) => {
               </p>
               <span>₹{subtotal}</span>
             </div>
-            <button onClick={proceedToPayment}>Proceed To Pay with Stripe</button>
+            {/* <button onClick={proceedToPayment}>Proceed To Pay with Stripe</button> */}
             <button onClick={proceedToRazorpayPayment}>Proceed to Pay with Razorpay</button>
           </div>
         </div>
