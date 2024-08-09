@@ -93,10 +93,13 @@
 
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import { userSelector, useSelector } from "react-redux";
 
 const Header = () => {
   const [keyword, setKeyword] = useState("");
   const history = useHistory();
+  const { isAuthenticated } = useSelector((state) => state.user);
+
 
 
   const searchSubmitHandler = (e) => {
@@ -146,17 +149,21 @@ const Header = () => {
                 About Us
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="/cart">
-                Cart
-              </Link>
-            </li>
+            {isAuthenticated ? (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/cart">
+                    Cart
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+            )}
 
             <li className="nav-item">
               <Link className="nav-link" to="/policy">
