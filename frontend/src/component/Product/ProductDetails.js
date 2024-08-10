@@ -161,9 +161,9 @@ const ProductDetails = ({ match }) => {
                 Description : <p>{product.description}</p>
               </div>
 
-              <button onClick={submitReviewToggle} className="submitReview">
+              {/* <button onClick={submitReviewToggle} className="submitReview">
                 Submit Review
-              </button>
+              </button> */}
             </div>
           </div>
 
