@@ -19,13 +19,12 @@
 }
 
 .banner > p {
-  font: 1000 3.5vmax "Roboto";
+  font: 1000 3.4vmax "sans-serif";
 }
 
 .banner > p > span{
-  font: 1000 6vmax "Roboto";
   font-weight: 1000;
-  /* font-size: 75px; */
+  font-size: 75px;
   color: #f90000
 }
 
