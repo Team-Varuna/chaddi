@@ -81,8 +81,8 @@ const Shipping = ({ history }) => {
                 type="number"
                 placeholder="Pin Code"
                 required
-                value={pinCode}
-                onChange={(e) => setPinCode(e.target.value)}
+                value="301705"
+                readOnly={true}
               />
             </div>
 
@@ -100,6 +100,17 @@ const Shipping = ({ history }) => {
 
             <div>
               <PublicIcon />
+              <input
+                type="string"
+                placeholder="Country"
+                required
+                value="India"
+                readOnly={true}
+              />
+            </div>
+
+            {/* <div>
+              <PublicIcon />
 
               <select
                 required
@@ -114,9 +125,20 @@ const Shipping = ({ history }) => {
                     </option>
                   ))}
               </select>
+            </div> */}
+
+            <div>
+              <TransferWithinAStationIcon />
+              <input
+                type="string"
+                placeholder="State"
+                required
+                value="Rajasthan"
+                readOnly={true}
+              />
             </div>
 
-            {country && (
+            {/* {country && (
               <div>
                 <TransferWithinAStationIcon />
 
@@ -134,7 +156,7 @@ const Shipping = ({ history }) => {
                     ))}
                 </select>
               </div>
-            )}
+            )} */}
 
             <input
               type="submit"
