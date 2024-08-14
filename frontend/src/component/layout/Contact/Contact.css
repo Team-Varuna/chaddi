@@ -21,6 +21,15 @@
   padding: 2vmax;
 }
 
+.contact{
+  font: 50 2vmax "Roboto";
+  margin-bottom: 0;
+}
+.mob {
+  font: 50 2vmax "Roboto";
+  margin-top: 0;
+}
+
 @keyframes mailBtnAnimation {
   to {
     transform: translateX(0);

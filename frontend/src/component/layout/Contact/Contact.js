@@ -8,7 +8,19 @@ const Contact = () => {
       <a className="mailBtn" href="mailto:kartik.mudgal22@st.niituniversity.in">
         <Button>If you're facing some issues then feel free contact us.</Button>
       </a>
+
+      
+      <p className="contact">
+        Contact Us at: numunch@st.niituniversity.in
+      </p>
+      <p className="mob">
+        Mobile Number: (+91) 6392331256
+      </p>
+     
     </div>
+    
+    
+    
   );
 };
 
